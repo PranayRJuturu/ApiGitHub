@@ -12,7 +12,7 @@ def getgitdata(userId):
     jsonReposiotryResponse = json.loads(repositoryResponse.text)
 
     if len(jsonReposiotryResponse) <= 0:
-        print("No repositories created.")
+        return "No repositories created."
 
     for repository in jsonReposiotryResponse:
 
@@ -20,9 +20,17 @@ def getgitdata(userId):
         if commitsResponse.status_code != 200:
             raise FileNotFoundError
             sys.exit()
+        jsonCommitsResponse = json.loads(commitsResponse.text)
 
         if len(jsonCommitsResponse) <=0:
             return "No commits to the repository "+ repository['name']    
-        jsonCommitsResponse = json.loads(commitsResponse.text)
-        print("Repo:"+repository['name']+" Number of commits:",len(jsonCommitsResponse))
+        return "Repo:"+repository['name']+" Number of commits:",len(jsonCommitsResponse)
+
+# try:
+#     userId = input("Enter the GitHub UserId: ")
+#     if len(userId)>39:
+#         print("User ID cannot be longer than 39 characters!")
+#     getgitdata(userId)
+# except FileNotFoundError:
+#     print("No user found!")
 
