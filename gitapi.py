@@ -6,7 +6,7 @@ import sys
 def getGitData(userId):
 
     repositoryResponse = requests.get('https://api.github.com/users/'+userId+'/repos')
-    if(repositoryResponse.status_code != 200):
+    if repositoryResponse.status_code != 200:
         raise FileNotFoundError
         sys.exit()  
     jsonReposiotryResponse = json.loads(repositoryResponse.text)
@@ -17,7 +17,7 @@ def getGitData(userId):
     for repository in jsonReposiotryResponse:
 
         commitsResponse = requests.get('https://api.github.com/repos/'+userId+'/'+repository['name']+'/commits')
-        if(commitsResponse.status_code != 200):
+        if commitsResponse.status_code != 200:
             raise FileNotFoundError
             sys.exit()
 
