@@ -3,7 +3,7 @@ import json
 import sys
 
 
-def getGitData(userId):
+def getgitdata(userId):
 
     repositoryResponse = requests.get('https://api.github.com/users/'+userId+'/repos')
     if repositoryResponse.status_code != 200:
@@ -30,7 +30,7 @@ try:
     userId = input("Enter the GitHub UserId: ")
     if len(userId)>39:
         print("User ID cannot be longer than 39 characters!")
-    getGitData(userId)
+    getgitdata(userId)
 except FileNotFoundError:
     print("No user found!")
 
