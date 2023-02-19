@@ -26,11 +26,3 @@ def getgitdata(userId):
         jsonCommitsResponse = json.loads(commitsResponse.text)
         print("Repo:"+repository['name']+" Number of commits:",len(jsonCommitsResponse))
 
-try:
-    userId = input("Enter the GitHub UserId: ")
-    if len(userId)>39:
-        print("User ID cannot be longer than 39 characters!")
-    getgitdata(userId)
-except FileNotFoundError:
-    print("No user found!")
-
