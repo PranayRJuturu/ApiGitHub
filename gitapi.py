@@ -4,15 +4,17 @@ import sys
 
 try:
     userId = input("Enter the GitHub UserId: ")
-    # if len(userId)>39:
-    #     print("User ID cannot be longer than 39 characters!")
+    if len(userId)>39:
+        print("User ID cannot be longer than 39 characters!")
 
     repositoryResponse = requests.get('https://api.github.com/users/'+userId+'/repos')
-    jsonReposiotryResponse = json.loads(repositoryResponse.text)
   
     if(repositoryResponse.status_code != 200):
         raise FileNotFoundError
         sys.exit()  
+
+    jsonReposiotryResponse = json.loads(repositoryResponse.text)
+
 except FileNotFoundError:
     print("No user found!")
 
