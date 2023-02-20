@@ -5,6 +5,9 @@ import sys
 
 def getgitdata(userId):
 
+    if len(userId)>39:
+        return "User ID cannot be longer than 39 characters!"
+        sys.exit()
     repositoryResponse = requests.get('https://api.github.com/users/'+userId+'/repos')
     if repositoryResponse.status_code != 200:
         raise FileNotFoundError
