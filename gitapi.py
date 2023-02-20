@@ -10,7 +10,7 @@ def getgitdata(userId):
         sys.exit()
     repositoryResponse = requests.get('https://api.github.com/users/'+userId+'/repos')
     if repositoryResponse.status_code != 200:
-        raise FileNotFoundError
+        return "Failed to retrive data!"
         sys.exit()  
     jsonReposiotryResponse = json.loads(repositoryResponse.text)
 
@@ -21,7 +21,7 @@ def getgitdata(userId):
 
         commitsResponse = requests.get('https://api.github.com/repos/'+userId+'/'+repository['name']+'/commits')
         if commitsResponse.status_code != 200:
-            raise FileNotFoundError
+            return "Failed to retrive data!"
             sys.exit()
         jsonCommitsResponse = json.loads(commitsResponse.text)
 
