@@ -11,6 +11,10 @@ class TestGitApi(unittest.TestCase):
 
     def testNoUser(self):
         self.assertEqual(getgitdata('PranayReeddyJuturuu'),'Failed to retrieve data!')
+
+    def testUser(self):
+        self.assertEqual(getgitdata('Pranay'),('Repo:Spoon-Knife Number of commits:', 5))    
+
         
 if __name__ == '__main__':
     print("Running unit tests")
