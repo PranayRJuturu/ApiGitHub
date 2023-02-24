@@ -29,8 +29,8 @@ def getgitdata(userId):
             return "No commits to the repository "+ repository['name']    
         return "Repo:"+repository['name']+" Number of commits:",len(jsonCommitsResponse)
 
-userId = input("Enter the GitHub UserId: ")
-if len(userId)>39:
-    print("User ID cannot be longer than 39 characters!")
-    print(getgitdata(userId))
+# userId = input("Enter the GitHub UserId: ")
+# if len(userId)>39:
+#     print("User ID cannot be longer than 39 characters!")
+#     print(getgitdata(userId))
 
