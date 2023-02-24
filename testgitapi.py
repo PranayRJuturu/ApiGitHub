@@ -9,6 +9,9 @@ class TestGitApi(unittest.TestCase):
     def testUserId(self):
         self.assertEqual(getgitdata('PranayRJuturu...........................'),'User ID cannot be longer than 39 characters!')    
 
+    def testNoUser(self):
+        self.assertEqual(getgitdata('PranayReeddyJuturuu'),'Failed to retrieve data!')
+        
 if __name__ == '__main__':
     print("Running unit tests")
     unittest.main()        

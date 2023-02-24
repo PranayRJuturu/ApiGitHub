@@ -21,7 +21,7 @@ def getgitdata(userId):
 
         commitsResponse = requests.get('https://api.github.com/repos/'+userId+'/'+repository['name']+'/commits')
         if commitsResponse.status_code != 200:
-            return "Failed to retrive data!"
+            return "Failed to retrieve data!"
             sys.exit()
         jsonCommitsResponse = json.loads(commitsResponse.text)
 
@@ -29,11 +29,8 @@ def getgitdata(userId):
             return "No commits to the repository "+ repository['name']    
         return "Repo:"+repository['name']+" Number of commits:",len(jsonCommitsResponse)
 
-# try:
-#     userId = input("Enter the GitHub UserId: ")
-#     if len(userId)>39:
-#         print("User ID cannot be longer than 39 characters!")
-#     getgitdata(userId)
-# except FileNotFoundError:
-#     print("No user found!")
+userId = input("Enter the GitHub UserId: ")
+if len(userId)>39:
+    print("User ID cannot be longer than 39 characters!")
+    print(getgitdata(userId))
 
