@@ -10,7 +10,7 @@ def getgitdata(userId):
         sys.exit()
     repositoryResponse = requests.get('https://api.github.com/users/'+userId+'/repos')
     if repositoryResponse.status_code != 200:
-        return "Failed to retrive data!"
+        return "Failed to retrieve data!"
         sys.exit()  
     jsonReposiotryResponse = json.loads(repositoryResponse.text)
 
