@@ -1,7 +1,9 @@
 import requests
 import json
 import sys
+import mybrand
 
+mybrand.my_brand("Testing REST-based API")
 
 def getgitdata(userId):
 
